@@ -41,12 +41,14 @@ class JobStatus extends Component {
         if (layout === 'bold') {
             if (builds.length > 0) {
                 const currentBuild = builds[0];
+                const previousBuild = builds[1];
                 if (currentBuild.result === 'SUCCESS') {
                     iconClasses = 'fa fa-check';
                 }
 
-                statusClasses = `widget__body__colored jenkins__view__job__build__colored_status--${ getBuildStatus(currentBuild).toLowerCase() }`;
-
+                statusClasses = 'widget__body__colored ' +
+                    `jenkins__view__job__build__colored_status--${ getBuildStatus(currentBuild).toLowerCase() } ` +
+                    `jenkins__view__job__build__colored_status__previous--${ getBuildStatus(previousBuild).toLowerCase() }`;
                 currentNode = (
                     <div className="jenkins__job-status__current">
                         Build #{currentBuild.number}<br />
@@ -95,7 +97,7 @@ class JobStatus extends Component {
             );
 
             if (builds.length > 1) {
-                previousNode = <JobStatusPreviousBuild build={builds[1]} />;
+                previousNode = <JobStatusPreviousBuild build={previousBuild} />;
             }
         }
 

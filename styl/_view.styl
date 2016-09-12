@@ -5,7 +5,11 @@
         &__status, &__colored_status
           font-size 1.6em
           &--building
-            background-color $unknown-color
+            background-color lighten($unknown-color, 15%)
+          &--building&__previous--success
+            background-color lighten($success-color, 15%)
+          &--building&__previous--failure
+            background-color lighten($failure-color, 15%)
           &--success
             background-color $success-color
           &--failure
