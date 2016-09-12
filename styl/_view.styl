@@ -2,19 +2,15 @@
   &__view
     &__job
       &__build
-        &__status
+        &__status, &__colored_status
           font-size 1.6em
-          &--success
-            color $success-color
-          &--unknown
-            color $unknown-color
-          &--failure
-            color $failure-color
-        &__colored_status
-          font-size 1.6em
+          &--building
+            background-color $unknown-color
           &--success
             background-color $success-color
-          &--unknown
-            background-color $unknown-color
           &--failure
             background-color $failure-color
+          &--aborted
+            background-color $unknown-color
+          &--unknown
+            background-color $unknown-color
